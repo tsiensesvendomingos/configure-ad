@@ -190,7 +190,7 @@ When clicking "OK," a Windows Security prompt will pop up asking for a domain ac
 <br />
 
 <p>
-Login to the Domain Controller and verify Client-1 shows up in Active Directory Users and Computers inside the "Computers" container on the domain's root. Create a new Organizational Unit named _CLIENTS and drag Client-1 into there. 
+Switch to the Domain Controller VM and verify Client-1 shows up in Active Directory Users and Computers inside the "Computers" container on the domain's root. Create a new Organizational Unit named _CLIENTS and drag Client-1 into there. 
 </p>
 <p>
 <img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/e205395b-da40-4544-8355-092e4e1b64ba" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -198,15 +198,15 @@ Login to the Domain Controller and verify Client-1 shows up in Active Directory 
 <br />
 
 <p>
-Log into Client-1 as avyaktrout.com\jane_admin and open system properties. Click Remote Desktop. Allow "domain users" access to remote desktop. You can now log into Client-1 as a normal, non-administrative user now. Normally you'd want to do this with Group Policy that allows you to change MANY systems at once (maybe a future lab).  
+Log into Client-1 as the Domain admin account that we set up (domintrio.com\jane.admin) and open settings. From there, navigate to System -> Remote Desktop -> Select users that can remotely access this PC. We will want to allow "domain users" to access this desktop remotely. You can now log into Client-1 as a normal, non-administrative user now. Normally you'd want to do this with Group Policy that allows you to change MANY systems simultaneously (maybe a future lab).  
 </p>
 <p>
-<img src="https://i.imgur.com/lOHuuw4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/8d382eb8-a464-46d5-9932-b7c2db343466" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Login to DC-1 as jane_admin. Open PowerShell_ise as an administrator. Create a new File and paste the contents of this script (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) into it. 
+Switching back to DC-1, Open PowerShell_ise as an administrator. Create a new File and paste the contents of this script (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) into it. 
 </p>
 <p>
 <img src="https://i.imgur.com/FFgc5or.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
