@@ -206,36 +206,28 @@ Log into Client-1 as the Domain admin account that we set up (domintrio.com\jane
 <br />
 
 <p>
-Switching back to DC-1, Open PowerShell_ise as an administrator. Create a new File and paste the contents of this script (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) into it. 
+Switching back to DC-1, Open PowerShell_ise as an administrator. Create a new File. Creating this will open a white command line above the blue one already open. Paste the contents of this script (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) into it and run the script using the green play button. Observe as the script creates multiple user accounts for the domain. For the sake of this project, they will all have the same password. 
 </p>
 <p>
-<img src="https://i.imgur.com/FFgc5or.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<br />
-
-<p>
-Run the script and observe the account being created. 
-</p>
-<p>
-<img src="https://i.imgur.com/Mwwce0e.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/b6d65597-2d1c-496d-a66f-03392f52f27c" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-When finished, open Active Directory Users and Computers and observe the accounts in the appropriate OU and attempt to log into Client-1 with one of the accounts (take note of the password in the script). 
+This script will run for a while as it creates random user accounts. Leave that running and open Active Directory Users and Computers from the Server Manager, observe the accounts in the appropriate OU. We can then select whichever User account from here and attempt to log into Client-1. (Take note of the password in the script.) 
 </p>
 <p>
-<img src="https://i.imgur.com/gynz8gn.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/7a0bf5f8-4170-4111-b48d-81da6f26c575" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<img src="https://i.imgur.com/VZp5YQZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/bb78c3d7-37bb-4ece-82e3-4a62925e5196" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<img src="https://i.imgur.com/CO7scI3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/1faf575b-2742-4828-95e5-063c2a5fec6e" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-And now that we're done don't forget to clean up your Azure environment so that you don't incur unnecessary charges.  
+This concludes the project. If you want, you can pick out another domain username and try to log into Client-1 with it. When finished, be sure to clean up your environment within Azure as leaving this running will go against your free azure credits.
 </p>
 <br />
