@@ -91,42 +91,53 @@ Let's go back to DC-1 to install Active Directory Domain Services and start the 
 Once Active Directory Domain Services is installed successfully, we should see an exclamation mark next to the flag on the top right of the Server Manager window. There we should see a post-deployment configuration task allowing us to promote this server to a Domain Controller. 
 </p>
 <p>
-<img src="https://i.imgur.com/sKzZmQi.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/ebc4950d-4024-4756-9c15-0bb373ff7b0c" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Setup a new forest as anything that you can remember. I did avyaktrout.com. 
+We will want to set up a new forest to load users into that will allow them to sign into Client-1 once we join that machine to our newly created domain. Set the root domain name to anything that you can remember for the purpose of this project. I made up the name domintrio.com. 
 </p>
 <p>
-<img src="https://i.imgur.com/DDR3J40.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<br />
-
-<p>
-Restart and then log back into DC-1 as user.  
-</p>
-<p>
-<img src="https://i.imgur.com/T7E8uTc.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/bf9f3ff6-d649-46db-a9a6-ebb9ccdb47d1" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-In Active Directory Users and Computers, create an Organizational Unit called _EMPLOYEES and another one called _ADMINS.  
+At the end of the installation, the VM will restart. Due to us starting the domain, our login information will also change, adding our domain name to our login as a result. Because of this, our initial Remote Desktop Connection will close, and we will have to log back in using our domain credentials.  
 </p>
 <p>
-<img src="https://i.imgur.com/WCdOsvN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<img src="https://i.imgur.com/gQIWMqA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/3ad3d463-9418-424e-9fa9-206d5931cc97" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Create a new employee named "Jane Doe" with the username of "jane_admin". 
+In Active Directory Users and Computers, create an Organizational Unit called _EMPLOYEES and another one called _ADMINS.
 </p>
 <p>
-<img src="https://i.imgur.com/dXpSmHd.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/5c18a7b5-0491-4228-9a94-91e77562fffe" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/14628138-8b45-4cea-9442-cf112aa7492c" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/0eca2912-1d6b-468f-a64a-696ded1b0dd2" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<br />
+
+<p>
+Let's create a new employee named "Jane Doe" with the username of "jane_admin". 
+</p>
+<p>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/a9447afc-9295-45c1-b926-73b16a70ff22" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<br />
+
+<p>
+Be sure to set a password that you can remember. Also, make sure that for the purpose of this project, uncheck "User must change password at next logon" and check "Password never expires"
+</p>
+<p>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/5b024b45-7a0c-4373-8b57-5c199fb495c3" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
@@ -134,7 +145,7 @@ Create a new employee named "Jane Doe" with the username of "jane_admin".
 Add jane_admin to the Domain Admins Security Group. 
 </p>
 <p>
-<img src="https://i.imgur.com/EBqKWdA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/9a8915b3-ac3c-4678-a31b-b5f6492e86fe" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
