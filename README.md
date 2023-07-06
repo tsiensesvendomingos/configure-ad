@@ -21,31 +21,31 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <h2>Deployment and Configuration Steps</h2>
 <p>
-Create the Domain Controller VM (Windows Server 2022) named DC-1.
+For this project, we'll need two virtual machines. A Windows server that will be the domain controller, and a regular Win 10 machine that we'll add to our domain being created. First, let's create the Domain Controller VM (Windows Server 2022) named DC-1.
 </p>
 <p>
-<img src="https://i.imgur.com/ZcHOBbp.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<br />
-
-<p>
-Create the Client VM (Windows 10) named Client-1. Use the same Resource Group and Vnet that was created in the previous step. 
-</p>
-<p>
-<img src="https://i.imgur.com/Zxmqs5I.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/12585222-c642-4efb-b73e-28a6f3a74957" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Set Domain Controller's NIC Private IP address to be static.
+Next, we'll create the Client VM (Windows 10) named Client-1. Again this will be the machine used to demonstrate that the multiple users we create can sign in to the same PC. Also, be sure to use the same Resource Group and Vnet that was created in the previous step. 
 </p>
 <p>
-<img src="https://i.imgur.com/50JHPVz.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/261f6ff8-2b05-4c3f-a69a-c4a5e1a941de" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Ensure that both VMs are in the same Vnet. You can check the topology with Network Watcher.
+For the Client PC to find the Domain every time without fail, we have to set the Private IP address to remain the same as leaving it on a "dynamic" IP address will mean that the private IP address will change every so often for security. To ensure it stays the same, we will set the Domain Controller's NIC Private IP address to be static.
+</p>
+<p>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/c05a2a50-8634-4bcb-b8f9-c060319b51f2" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<br />
+
+<p>
+Be sure that both VMs are in the same Vnet. We can ensure this by checking the topology with Network Watcher within Azure.
 </p>
 <p>
 <img src="https://i.imgur.com/qoa6Ogg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -53,7 +53,7 @@ Ensure that both VMs are in the same Vnet. You can check the topology with Netwo
 <br />
 
 <p>
-Login to Client-1 with Remote Desktop and ping DC-1's private IP address with ping -t which is a perpetual ping.
+Login to Client-1 with Remote Desktop and open a command prompt line to attempt to ping DC-1's private IP address using the command "ping -t (private IP address)" The -t makes this ping command perpetual, meaning it'll ping continuously. We should see it fail upon attempt due to the default firewall settings on the server machine.
 </p>
 <p>
 <img src="https://i.imgur.com/7WiZnXa.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -61,7 +61,7 @@ Login to Client-1 with Remote Desktop and ping DC-1's private IP address with pi
 <br />
 
 <p>
-Login to the Domain Controller and enable ICMPv4 in on the local windows firewall.  
+Let's change that by logging in to the Domain Controller VM (DC-1) and enabling ICMPv4 in on the local Windows defender firewall.  
 </p>
 <p>
 <img src="https://i.imgur.com/5zjqHgk.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -72,7 +72,7 @@ Login to the Domain Controller and enable ICMPv4 in on the local windows firewal
 <br />
 
 <p>
-Check back at Client-1 to see if the ping succeeded.  
+Back at the Client-1 VM, we should see that if enabled correctly, the pings succeeded.  
 </p>
 <p>
 <img src="https://i.imgur.com/aina7fg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -80,7 +80,7 @@ Check back at Client-1 to see if the ping succeeded.
 <br />
 
 <p>
-Login to DC-1 and install Active Directory Domain Services. 
+Let's go back to DC-1 to install Active Directory Domain Services and start the promotion of this system to it being a Domain Controller. 
 </p>
 <p>
 <img src="https://i.imgur.com/v96ghkg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -88,7 +88,7 @@ Login to DC-1 and install Active Directory Domain Services.
 <br />
 
 <p>
-Promote as a Domain Controller. 
+Once Active Directory Domain Services is installed successfully, we should see an exclamation mark next to the flag on the top right of the Server Manager window. There we should see a post-deployment configuration task allowing us to promote this server to a Domain Controller. 
 </p>
 <p>
 <img src="https://i.imgur.com/sKzZmQi.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
