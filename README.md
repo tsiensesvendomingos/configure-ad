@@ -158,26 +158,42 @@ As we want to simulate working as an actual admin, we will now log out of the or
 <br />
 
 <p>
-From the Azure Portal, set Client-1's DNS settings to the DC's Private IP address.  
+While we have that going, from the Azure Portal on our main PC, set Client-1's DNS settings to the DC's Private IP address.  
 </p>
 <p>
-<img src="https://i.imgur.com/FgY17Ww.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<br />
-
-<p>
-From the Azure Portal restart Client-1. Login to Client-1 as the original local admin (labuser) and join it to the domain. The computer will restart.  
-</p>
-<p>
-<img src="https://i.imgur.com/DAZm8Sq.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/396f3bd2-2f96-4fdb-b11b-829cd0d53b19" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
 <p>
-Login to the Domain Controller and verify Client-1 shows up in Active Directory Users and Computers inside the "Computers" container on the root of the domain. Create a new Organizational Unit named _CLIENTS and drag Client-1 into there. 
+We are now ready to add our Windows 10 VM to our domain. To start, let's restart the VM from the Azure Portal.
 </p>
 <p>
-<img src="https://i.imgur.com/3RWEI9S.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/955f7985-6ed7-482a-af05-883f33a0b78c" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<br />
+
+<p>
+Reestablish a Remote Desktop Connection to VM "Client-1" with the original logon credentials used to create the VM. (In our case, "labuser.") Once logged in, we can go to Settings -> About -> Rename this PC (advanced). Once there, hit "change..." and then toggle "Domain" under "Member of" and type in our created domain. (domintrio.com)
+</p>
+<p>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/4861cecf-53fd-438d-99af-57e28e74c847" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<br />
+
+<p>
+When clicking "OK," a Windows Security prompt will pop up asking for a domain account with permission to join our domain. Use Jane's domain credentials to sign in. This will cause the remote connection to disconnect briefly. Upon the remote connection being reestablished, you should see a pop-up window, welcoming you to the domain. You will then have to restart the VM to have the changes take effect. You can do so from the power menu in the Start menu.
+</p>
+<p>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/8062bba1-a26d-48bd-9a79-75dcd07476e4" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<br />
+
+<p>
+Login to the Domain Controller and verify Client-1 shows up in Active Directory Users and Computers inside the "Computers" container on the domain's root. Create a new Organizational Unit named _CLIENTS and drag Client-1 into there. 
+</p>
+<p>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/e205395b-da40-4544-8355-092e4e1b64ba" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
