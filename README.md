@@ -126,7 +126,7 @@ In Active Directory Users and Computers, create an Organizational Unit called _E
 <br />
 
 <p>
-Let's create a new employee named "Jane Doe" with the username of "jane_admin". 
+Let's create a new employee named "Jane Doe" with the username of "jane.admin". 
 </p>
 <p>
 <img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/a9447afc-9295-45c1-b926-73b16a70ff22" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -142,7 +142,7 @@ Be sure to set a password that you can remember. Also, make sure that for the pu
 <br />
 
 <p>
-Add jane_admin to the Domain Admins Security Group. 
+Add jane.admin to the Domain Admins Security Group. 
 </p>
 <p>
 <img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/9a8915b3-ac3c-4678-a31b-b5f6492e86fe" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -150,10 +150,10 @@ Add jane_admin to the Domain Admins Security Group.
 <br />
 
 <p>
-Log out/close the Remote Desktop connection to DC-1 and log back in as “avyaktrout.com\jane_admin”. Use jane_admin as your admin account from now on. 
+As we want to simulate working as an actual admin, we will now log out of the original user we created when creating the VM and sign in using Jane's domain admin credentials. 
 </p>
 <p>
-<img src="https://i.imgur.com/phaYZHS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/tsiensesvendomingos/configure-ad/assets/138411730/c04675ff-dd94-4a9f-b619-cc16ff30530a" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
